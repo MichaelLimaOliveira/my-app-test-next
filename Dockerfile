@@ -4,14 +4,14 @@ FROM node:16
 # Define o diretório de trabalho
 WORKDIR /app
 
+# Copia todo o código da aplicação para o diretório de trabalho
+COPY . .
+
 # Copia o package.json e package-lock.json para o diretório de trabalho
 COPY package*.json ./
 
 # Instala as dependências do projeto
 RUN npm install
-
-# Copia todo o código da aplicação para o diretório de trabalho
-COPY . .
 
 # Constrói a aplicação Next.js
 RUN npm run build
